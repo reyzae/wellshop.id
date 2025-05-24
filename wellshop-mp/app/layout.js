@@ -1,5 +1,6 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "./context/CartContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -7,7 +8,7 @@ const inter = Inter({
 });
 
 const poppins = Poppins({
-  weight: ["700", "900"], // untuk heading bold dan extra bold
+  weight: ["700", "900"],
   subsets: ["latin"],
   variable: "--font-poppins",
 });
@@ -31,9 +32,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={`${inter.variable} ${poppins.variable} antialiased`}>
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ import BannerEvent from "./components/BannerEvent";
 import FaqSection from "./components/FaqSection";
 import MobileNav from "./components/MobileNav";
 import products from "./data/products";
+import Link from "next/link";
 
 export const metadata = {
   title: "Wellshop.id - Marketplace Simple & Unik",
@@ -70,25 +71,27 @@ export default function Home() {
       </section>
 
       <section id="produk" className="produk-section">
-        <h3>Pilihan Produk Terpopuler</h3>
-        <div className="produk-grid">
-  {products.map((prod) => (
-    <div className="produk-card" key={prod.id}>
-      <span className="ribbon">{prod.ribbon}</span>
-      <img src={prod.image} alt={prod.name} />
-      <h4>{prod.name}</h4>
-      <p className="harga">Rp{prod.price.toLocaleString("id-ID")}</p>
-      <a className="btn-produk" href="#">
-        <svg width="18" height="18" fill="none" stroke="#fff" strokeWidth="2" viewBox="0 0 24 24">
-          <path d="M6 6h15l-1.5 9h-13z"/>
-          <circle cx="9" cy="20" r="1"/>
-          <circle cx="18" cy="20" r="1"/>
-        </svg>
-        Lihat Detail
-      </a>
-    </div>
-  ))}
-</div>
+  <h3>Pilihan Produk Terpopuler</h3>
+  <div className="produk-grid">
+    {products.map((prod) => (
+      <div className="produk-card" key={prod.id}>
+        <span className="ribbon">{prod.ribbon}</span>
+        <img src={prod.image} alt={prod.name} />
+        <h4>{prod.name}</h4>
+        <p className="harga">Rp{prod.price.toLocaleString("id-ID")}</p>
+        <Link className="btn-produk" href={`/produk/${prod.id}`}>
+          <svg width="18" height="18" fill="none" stroke="#fff" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M6 6h15l-1.5 9h-13z"/>
+            <circle cx="9" cy="20" r="1"/>
+            <circle cx="18" cy="20" r="1"/>
+          </svg>
+          Lihat Detail
+        </Link>
+      </div>
+    ))}
+  </div>
+
+
 
         <div style={{ textAlign: "center", marginTop: 20 }}>
           <a href="#" className="btn-utama outline" style={{
@@ -120,3 +123,4 @@ export default function Home() {
     </>
   );
 }
+

@@ -496,3 +496,22 @@ footer {
   font-weight: 600;
 }
 .footer-content a:hover { color: var(--primary);}
+
+
+/* BACK BUTTON */
+.btn-back {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1.5px solid var(--accent);
+  transition: background .13s, color .13s, border .13s;
+}
+.btn-back:hover {
+  background: var(--accent);
+  color: #fff;
+}
